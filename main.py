@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import json
@@ -9,7 +10,12 @@ with open("./rules.json","r") as f:
     rules = json.load(f)
 
 # Define the directory where downloaded files are placed
-downloadDir = "$HOME/Downloads/"
+downloadDir = f'/home/caber/Downloads'
+print(f"downloadDir: {downloadDir}")
+
+if not os.path.exists(downloadDir):
+    print(f"The specified directory '{downloadDir}' does not exist.")
+    sys.exit(1)  # Exit the script with an error code
 
 class FileHandler(FileSystemEventHandler):
     def on_created(self, event):
@@ -43,6 +49,3 @@ if __name__ == "__main__":
         observer.stop()
 
     observer.join()
-
-
-
