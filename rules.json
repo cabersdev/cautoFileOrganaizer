@@ -1,10 +1,16 @@
 {
-    ".pdf": "Documents",
-    ".jpg": "Pictures",
-    ".txt": "Documents",
-    ".zip": "Archives",
-    ".mp3": "Music",
-    ".mp4": "Music",
-    ".docx": "Documents" 
+  ".blend"  :   "$HOME/Documents/blender/",
+  ".dwg"    :   "$HOME/Documents/cad/",
+  ".docx"   :   "$HOME/Documents/docs/",
+  ".doc"    :   "$HOME/Documents/docs/",
+  ".docm"   :   "$HOME/Documents/docs/",
+  ".svg"    :   "$HOME/Documents/inkscape/",
+  ".gp"     :   "$HOME/Documents/gnuplot/",
+  ".xlsx"   :   "$HOME/Documents/spreadsheet/",
+  ".xlsm"   :   "$HOME/Documents/spreadsheet",
+  ".xls"    :   "$HOME/Documents/spreadsheet/",
+  ".txt"    :   "$HOME/Documents/txt/",
+  ".pdf"    :   "$HOME/Documents/",
+  ".jpg"    :   "$HOME/Pictures/",
+  ".zip"    :   "$HOME/Archives/"
 }
-

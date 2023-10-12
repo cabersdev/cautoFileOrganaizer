@@ -1,15 +1,15 @@
 import os
-import json
 import shutil
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+import json
 
-# Load the rules from the JSON file
-with open("rules.json", "r") as f:
+# Load the rules from json file
+with open("./rules.json","r") as f:
     rules = json.load(f)
 
 # Define the directory where downloaded files are placed
-download_dir = "$HOME/Downloads"
+downloadDir = "$HOME/Downloads/"
 
 class FileHandler(FileSystemEventHandler):
     def on_created(self, event):
@@ -17,8 +17,9 @@ class FileHandler(FileSystemEventHandler):
             return
 
         # Get the file extension
-        file_name, file_ext = os.path.splitext(event.src_path)
+        file_name, file_ext = os.splitext(event.src_path)
 
+        
         # Determine the target directory based on the file extension
         target_dir = rules.get(file_ext, "Other")
 
@@ -32,7 +33,7 @@ class FileHandler(FileSystemEventHandler):
 if __name__ == "__main__":
     event_handler = FileHandler()
     observer = Observer()
-    observer.schedule(event_handler, path=download_dir, recursive=False)
+    observer.schedule(event_handler, path=downloadDir, recursive=False)
     observer.start()
 
     try:
@@ -42,4 +43,6 @@ if __name__ == "__main__":
         observer.stop()
 
     observer.join()
+
+
 
